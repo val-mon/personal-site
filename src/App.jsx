@@ -21,7 +21,7 @@ function App() {
       <main>
         <div className="wrap">
           <section id="top" className="hero">
-            <img src="/pp.png" alt="Valentin Monod" className="avatar" />
+            <img src="/pp.webp" alt="Valentin Monod" className="avatar" />
             <div>
               <h1>Valentin Monod</h1>
               <p className="tagline">Big Data &amp; AI Engineer in the making</p>
