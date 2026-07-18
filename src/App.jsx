@@ -3,12 +3,12 @@ import './App.css'
 const education = [
   {
     title: 'Bachelor of Science - BSc, Computer Science',
-    sub: 'HES-SO Valais-Wallis',
+    sub: 'HES-SO Valais-Wallis, Sion',
     date: '2024 — 2027',
   },
   {
     title: 'Federal Certificate of Competence - CFC, Electronics',
-    sub: 'CAMPUS EPTM',
+    sub: 'CAMPUS EPTM, Sion',
     date: '2017 — 2021',
   },
 ]
