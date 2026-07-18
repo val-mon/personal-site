@@ -13,7 +13,7 @@ const education = [
   },
 ]
 
-const interests = ['Big Data', 'AI', 'Gym', 'Running', 'Tech', 'Motorcycles']
+const interests = ['AI', 'Gym', 'Running', 'Tech', 'Motorcycles']
 
 function App() {
   return (
