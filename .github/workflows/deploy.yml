@@ -1,4 +1,4 @@
-name: Deploy
+name: deploy
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Copier vers le VPS
+      - name: copy to vps
         uses: burnett01/rsync-deployments@7.0.1
         with:
           switches: -avz --delete
