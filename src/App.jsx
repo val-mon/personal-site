@@ -10,7 +10,6 @@ const education = [
   {
     title: 'BSc — Systems Engineering',
     sub: 'HES-SO Valais-Wallis, Sion, CH',
-    detail: 'First semester completed, transferred to computer science',
     date: '2021 — 2022',
   },
   {
@@ -50,6 +49,7 @@ const skills = [
       'Linear algebra',
       'Calculus',
       'Probability and statistics',
+      'Computational physics',
     ],
   },
   {
@@ -68,29 +68,33 @@ const skills = [
 
 const projects = [
   {
-    title: 'Personal server',
-    description:
-      'Hosts my website and an AI automation agent',
-  },
-  {
     title: 'Puzzle solver',
-    description: 'Computer vision',
+    description: 'Reconstruct a puzzle from a single image: acquisition, noise handling, feature extraction, modelling',
     href: 'https://github.com/isc-hei-classrooms/project2-valcar',
   },
   {
+    title: 'Condensim',
+    description: 'Particle simulation of water vapour: ideal gas theory, temperature, pressure, entropy',
+    href: 'https://github.com/val-mon/condensim',
+  },
+  {
     title: 'Chess bot',
-    description: 'Search and optimisation algorithms',
+    description: 'Play chess through search and optimisation algorithms',
     href: 'https://github.com/val-mon/isc-chess',
   },
   {
-    title: 'StudyUp',
-    description: 'Full-stack productivity web app',
-    href: 'https://github.com/val-mon/study-up',
+    title: 'Scala Compiler',
+    description: 'Implement the parser for a teaching language',
+    href: 'https://github.com/val-mon/yafl',
   },
   {
-    title: 'Scala Compiler',
-    description: 'Lexical and syntactic analysis',
-    href: 'https://github.com/val-mon/yafl',
+    title: 'Personal server',
+    description:'Run my own services: my website, an AI automation agent and more',
+  },
+  {
+    title: 'StudyUp',
+    description: 'Full-stack web productivity app helping students',
+    href: 'https://github.com/val-mon/study-up',
   },
 ]
 
