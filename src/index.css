@@ -1,10 +1,16 @@
 :root {
   --bg: #ffffff;
-  --text: #18181b;
-  --muted: #6b7280;
-  --border: #e5e7eb;
-  --accent: #18181b;
-  --max-width: 620px;
+  --paper: #ffffff;
+  --panel: #eeefed;
+  --text: #202124;
+  --muted: #57585b;
+  --border: #d2d3d1;
+  --max-width: 1040px;
+  --radius-card: 8px;
+  --radius-chip: 5px;
+  --text-card-title: clamp(16px, 1vw + 13px, 18px);
+  --text-secondary: clamp(14px, 0.7vw + 12px, 15px);
+  --text-label: clamp(13px, 0.5vw + 11px, 14px);
 }
 
 * {
@@ -22,7 +28,17 @@ body {
   font-family:
     -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: clamp(16px, 0.45vw + 14.5px, 17px);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  color: var(--paper);
+  background: #45464a;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 4px;
 }

@@ -22,9 +22,16 @@ const education = [
 
 const skills = [
   {
-    emoji: '🌐',
-    group: 'Systems and infrastructure',
-    items: ['Linux', 'Docker', 'nginx', 'Git', 'CI/CD', 'TCP/IP networking'],
+    emoji: '📊',
+    group: 'Data and AI',
+    items: [
+      'Computer vision',
+      'Natural language processing',
+      'Linear algebra',
+      'Calculus',
+      'Probability and statistics',
+      'Computational physics',
+    ],
   },
   {
     emoji: '🧑🏻‍💻',
@@ -41,16 +48,9 @@ const skills = [
     ],
   },
   {
-    emoji: '📊',
-    group: 'Data and AI',
-    items: [
-      'Computer vision',
-      'Natural language processing',
-      'Linear algebra',
-      'Calculus',
-      'Probability and statistics',
-      'Computational physics',
-    ],
+    emoji: '🌐',
+    group: 'Systems and infrastructure',
+    items: ['Linux', 'Docker', 'nginx', 'Git', 'CI/CD', 'TCP/IP networking'],
   },
   {
     emoji: '⚡',
@@ -88,13 +88,13 @@ const projects = [
     href: 'https://github.com/val-mon/yafl',
   },
   {
-    title: 'Personal server',
-    description:'Run my own services: my website, an AI automation agent and more',
-  },
-  {
     title: 'StudyUp',
     description: 'Full-stack web productivity app helping students',
     href: 'https://github.com/val-mon/study-up',
+  },
+  {
+    title: 'Personal server',
+    description: 'Run my own services: my website, an AI automation agent and more',
   },
 ]
 

@@ -1,75 +1,110 @@
 .wrap {
-  max-width: var(--max-width);
+  position: relative;
+  width: min(var(--max-width), calc(100% - 40px));
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 3.8vw, 40px);
 }
 
 main {
-  padding: 96px 0 40px;
+  padding: 64px 0 40px;
 }
 
 section {
-  margin-bottom: 64px;
+  position: relative;
+  margin-bottom: 0;
+  padding: 36px 0;
 }
 
 .hero {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
+  align-items: center;
+  gap: clamp(18px, 3vw, 28px);
+  min-height: 290px;
+  padding: 54px 0;
+  overflow: hidden;
+  text-align: center;
 }
 
 .avatar {
-  width: 128px;
-  height: 128px;
+  width: clamp(140px, 15vw, 180px);
+  height: clamp(140px, 15vw, 180px);
+  flex: 0 0 auto;
+  border: 1px solid #c7c8c6;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--border);
+}
+
+h1,
+h2,
+.item-title,
+.skill-group,
+.card-title {
+  font-family: inherit;
 }
 
 h1 {
-  font-size: 28px;
-  font-weight: 700;
   margin: 0 0 8px;
-  letter-spacing: -0.02em;
+  font-size: clamp(32px, 4.8vw, 50px);
+  font-weight: 650;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
 }
 
 .tagline {
-  font-size: 16px;
-  color: var(--muted);
-  margin: 0;
   max-width: 480px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(16px, 1vw + 13px, 18px);
 }
 
 h2 {
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  position: relative;
+  display: block;
+  margin: 0 0 34px;
+  padding: 0;
   color: var(--text);
-  margin: 0 0 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--text);
+  font-size: clamp(24px, 2vw + 16px, 29px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  text-align: left;
+}
+
+h2::after {
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-radius: 2px;
+  background: var(--border);
+  content: '';
+}
+
+@media (min-width: 761px) {
+  h2 {
+    font-size: 36px;
+  }
 }
 
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .item {
   display: flex;
-  justify-content: space-between;
   align-items: baseline;
+  justify-content: space-between;
   gap: 16px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--border);
-}
-
-.item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+  padding: clamp(16px, 2vw, 20px) clamp(12px, 1.8vw, 18px);
+  border: 1px solid #d0d1cf;
+  border-radius: var(--radius-card);
+  background: transparent;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .item-main {
@@ -79,65 +114,66 @@ h2 {
 }
 
 .item-title {
+  font-size: var(--text-card-title);
   font-weight: 600;
-  font-size: 15px;
 }
 
-.item-sub {
-  font-size: 14px;
+.item-sub,
+.item-detail {
   color: var(--muted);
+  font-size: var(--text-secondary);
 }
 
 .item-detail {
-  font-size: 13px;
-  color: var(--muted);
   margin-top: 4px;
 }
 
 .item-date {
-  font-size: 13px;
-  color: var(--muted);
-  white-space: nowrap;
   flex-shrink: 0;
+  padding: 7px clamp(9px, 1.2vw, 13px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-chip);
+  background: rgba(250, 250, 249, 0.7);
+  color: var(--text);
+  font-size: var(--text-label);
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .tag {
-  font-size: 13px;
-  padding: 6px 12px;
+  padding: 7px clamp(9px, 1.2vw, 13px);
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--radius-chip);
+  background: rgba(250, 250, 249, 0.7);
   color: var(--text);
+  font-size: var(--text-label);
 }
 
-/* Cards — shared by the skills groups and the project list. */
 .cards {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(12px, 1.5vw, 16px);
 }
 
 .card {
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  transition:
-    border-color 0.15s ease,
-    transform 0.15s ease,
-    box-shadow 0.15s ease;
+  padding: clamp(16px, 2vw, 22px);
+  border: 1px solid #c9cac8;
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-/* Every card lifts on hover; only the clickable ones redirect. */
+.item:hover,
 .card:hover,
 .card-clickable:focus-within {
-  border-color: var(--text);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(24, 24, 27, 0.06);
+  border-color: #77787a;
+  background: #fff;
 }
 
 .skill-group {
@@ -145,36 +181,30 @@ h2 {
   align-items: center;
   gap: 8px;
   margin: 0 0 12px;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
   color: var(--text);
+  font-size: var(--text-card-title);
+  font-weight: 600;
 }
 
 .skill-emoji {
-  font-size: 15px;
+  font-family: sans-serif;
+  font-size: 17px;
   line-height: 1;
-  transition: transform 0.15s ease;
-}
-
-.skill-card:hover .skill-emoji {
-  transform: scale(1.15);
 }
 
 .card-title {
   margin: 0 0 8px;
-  font-size: 15px;
+  font-size: var(--text-card-title);
   font-weight: 600;
 }
 
 .card-desc {
   margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.6;
   color: var(--muted);
+  font-size: var(--text-secondary);
+  line-height: 1.75;
 }
 
-/* Only projects with a URL become clickable, arrow included. */
 .card-clickable {
   position: relative;
   cursor: pointer;
@@ -190,141 +220,280 @@ h2 {
   align-items: center;
   gap: 6px;
   max-width: 100%;
-  margin-top: 12px;
+  margin-top: 8px;
   overflow-wrap: anywhere;
-  font-size: 13px;
+  color: #3f4043;
+  font-size: var(--text-label);
   font-weight: 600;
-  color: var(--muted);
   text-decoration: none;
+  text-underline-offset: 3px;
   transition: color 0.15s ease;
 }
 
-/* Stretches the link over the whole card so the card itself is clickable. */
 .card-link::after {
-  content: '';
   position: absolute;
   inset: 0;
-  border-radius: 14px;
+  content: '';
+  border-radius: var(--radius-card);
 }
 
 .card-clickable:hover .card-link,
 .card-clickable:focus-within .card-link {
-  color: var(--text);
+  color: #000;
+  text-decoration: underline;
 }
 
 .card-arrow {
   display: inline-block;
-  transition: transform 0.15s ease;
 }
 
-.card-clickable:hover .card-arrow,
-.card-clickable:focus-within .card-arrow {
-  transform: translateX(4px);
+#interests .tags {
+  gap: 12px;
 }
 
 .connect-links {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .connect-links a {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
+  gap: 12px;
+  min-width: 0;
+  padding: clamp(12px, 1.5vw, 16px);
+  border: 1px solid #c9cac8;
+  border-radius: var(--radius-card);
   color: var(--text);
   text-decoration: none;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  transition:
-    border-color 0.15s ease,
-    transform 0.15s ease;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .connect-links a:hover {
-  border-color: var(--text);
-  transform: translateY(-1px);
+  border-color: #77787a;
+  background: var(--paper);
 }
 
 .connect-links a .icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  flex-shrink: 0;
   display: flex;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--panel);
+  color: #292a2d;
 }
 
 .connect-links a .icon svg {
-  width: 20px;
-  height: 20px;
+  width: 17px;
+  height: 17px;
 }
 
-.icon.mail {
+.connect-links a .icon.mail {
+  border-color: transparent;
   background: #ecfdf3;
   color: #16a34a;
 }
-.icon.linkedin {
+
+.connect-links a .icon.linkedin {
+  border-color: transparent;
   background: #eff6ff;
   color: #2563eb;
 }
-.icon.github {
-  background: #18181b;
-  color: #ffffff;
+
+.connect-links a .icon.github {
+  border-color: transparent;
+  background: #292a2d;
+  color: #fff;
 }
 
 .connect-links a .label-col {
   display: flex;
+  min-width: 0;
   flex-direction: column;
   gap: 2px;
 }
 
 .connect-links a .label-small {
-  font-size: 12px;
   color: var(--muted);
+  font-size: var(--text-secondary);
+  line-height: 1.4;
 }
 
 .connect-links a .label-value {
-  font-size: 15px;
-  font-weight: 600;
+  overflow-wrap: anywhere;
   color: var(--text);
+  font-size: var(--text-secondary);
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 footer {
+  padding: 22px 0 42px;
   border-top: 1px solid var(--border);
-  padding: 24px 0 48px;
 }
 
 footer .wrap {
-  font-size: 13px;
   color: var(--muted);
+  font-size: 14px;
   text-align: center;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card,
-  .card-arrow,
-  .skill-emoji,
-  .connect-links a {
-    transition: none;
+@media (max-width: 760px) {
+  .wrap {
+    width: min(100% - 28px, var(--max-width));
+    padding: 0 clamp(12px, 3vw, 24px);
   }
 
-  .card:hover,
-  .card-clickable:focus-within,
-  .skill-card:hover .skill-emoji,
-  .card-clickable:hover .card-arrow,
-  .card-clickable:focus-within .card-arrow {
-    transform: none;
+  .connect-links {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 24px;
+@media (min-width: 561px) and (max-width: 1024px) {
+  .avatar {
+    width: clamp(168px, 21vw, 200px);
+    height: clamp(168px, 21vw, 200px);
   }
+}
+
+@media (max-width: 560px) {
+  .wrap {
+    width: calc(100% - 20px);
+    padding: 0 12px;
+  }
+
+  main {
+    padding-top: 40px;
+  }
+
+  section {
+    padding: clamp(30px, 7vw, 36px) 0;
+  }
+
+  .hero {
+    min-height: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 26px 0 34px;
+    text-align: center;
+  }
+
+  .avatar {
+    width: clamp(120px, 32vw, 146px);
+    height: clamp(120px, 32vw, 146px);
+  }
+
+  h1 {
+    font-size: clamp(27px, 7.8vw, 36px);
+    overflow-wrap: anywhere;
+  }
+
+  .tagline {
+    font-size: clamp(14px, 3.8vw, 16px);
+  }
+
+  h2 {
+    margin-bottom: 34px;
+    font-size: clamp(24px, 6vw, 28px);
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
   .item {
     flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 18px clamp(8px, 2.5vw, 12px);
+  }
+
+  .item-main {
+    min-width: 0;
+    gap: 6px;
+  }
+
+  .item-title {
+    font-size: var(--text-card-title);
+    line-height: 1.45;
+  }
+
+  .item-sub,
+  .item-detail {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .item-date {
+    line-height: 1.4;
+  }
+
+  .timeline {
+    gap: 14px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card-desc {
+    line-height: 1.7;
+  }
+
+  .connect-links a {
+    padding: 15px;
+  }
+
+  .tags {
+    gap: 12px;
+  }
+
+  #interests .tags {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .wrap {
+    width: calc(100% - 16px);
+    padding: 0 10px;
+  }
+
+  .item {
+    padding: 16px 8px;
+    gap: 10px;
+  }
+
+  .hero {
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: clamp(25px, 7.8vw, 30px);
+  }
+
+  .item-date {
+    padding: 6px 9px;
+    white-space: normal;
+  }
+
+  .tag {
+    padding: 6px 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
